@@ -22,12 +22,23 @@ const Feed = () => {
 
 	const handleSearch = (e) => {};
 
+	// useEffect(() => {
+	// 	(async () => {
+	// 		const response = await fetch('/api/prompt');
+	// 		const data = await response.json();
+	// 		setPrompts(data);
+	// 	})();
+	// }, []);
+
+	const fetchPosts = async () => {
+		const response = await fetch('/api/prompt');
+		const data = await response.json();
+
+		setPrompts(data);
+	};
+
 	useEffect(() => {
-		(async () => {
-			const response = await fetch('/api/prompt');
-			const data = await response.json();
-			setPrompts(data);
-		})();
+		fetchPosts();
 	}, []);
 
 	return (
