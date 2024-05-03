@@ -27,7 +27,7 @@ const Feed = () => {
 		(async () => {
 			const response = await fetch('/api/prompt');
 			const data = await response.json();
-
+			console.log('feed:' + data);
 			setPrompts(data);
 		})();
 	}, []);
